@@ -1,0 +1,1 @@
+{"name":"gift-flap-live","version":"1.0.0","private":true,"description":"Interactive LIVE gift-controlled flap game","scripts":{"start":"node server.js"},"engines":{"node":">=18"}}

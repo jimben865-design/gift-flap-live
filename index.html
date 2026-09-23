@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gift Flap Live</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" width="720" height="960" aria-label="Gift Flap game"></canvas>
+
+    <section class="hud">
+      <div class="stat"><span>Score</span><strong id="score">0 / 20</strong></div>
+      <div class="brand">GIFT FLAP</div>
+      <div class="stat"><span>Wins</span><strong id="wins">0 / 3</strong></div>
+    </section>
+
+    <section id="startPanel" class="panel">
+      <h1>Gift Flap</h1>
+      <p>Reach 20 points to earn a win. Get 3 wins to finish!</p>
+      <button id="startBtn">Start Game</button>
+      <small>Jump: Space, click/tap, or a mapped LIVE gift</small>
+    </section>
+
+    <section id="roundPanel" class="panel hidden">
+      <h2 id="roundTitle">Round over</h2>
+      <p id="roundText"></p>
+      <button id="retryBtn">Play Again</button>
+    </section>
+
+    <section id="victoryPanel" class="panel victory hidden">
+      <h1>3 WINS!</h1>
+      <p>Challenge complete - end the LIVE!</p>
+      <button id="resetBtn">Reset Stream</button>
+    </section>
+
+    <div id="eventFeed" class="event-feed"></div>
+
+    <aside id="setup" class="setup">
+      <button id="setupToggle">Streamer controls</button>
+      <div id="setupBody" class="setup-body hidden">
+        <h3>Test controls</h3>
+        <button data-action="jump">Test jump</button>
+        <button data-action="add">+1 win</button>
+        <button data-action="subtract">-1 win</button>
+        <button data-action="restart">Restart round</button>
+        <label>Jump cooldown (ms)<input id="cooldownInput" type="number" min="0" max="3000" step="50" value="250"></label>
+        <p>Bridge endpoint: <code>POST /api/event</code></p>
+        <pre>{"type":"jump","user":"viewer"}</pre>
+        <pre>{"type":"addWin","user":"viewer"}</pre>
+        <pre>{"type":"subtractWin","user":"viewer"}</pre>
+      </div>
+    </aside>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
